@@ -10,7 +10,7 @@
     "url": "git://github.com/geostarters/js-project-template.git"
   },
   "engines": {
-    "node": ">=6.4.0"
+    "node": ">=8.4.0"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",
@@ -26,9 +26,10 @@
     "eslint-plugin-node": "^5.2.1",
     "eslint-plugin-react": "^7.6.1",
     "execcommand-copy": "^1.1.0",
-    "flow-bin": "^0.64.0",
+    "flow-bin": "0.64.0",
     "flow-coverage-report": "^0.4.1",
     "flow-remove-types": "^1.2.3",
+    "flow-typed": "^2.3.0",
     "github-slugger": "^1.2.0",
     "glob": "^7.1.2",
     "in-publish": "^2.0.0",
@@ -68,9 +69,9 @@
     "start-server": "st --no-cache -H 127.0.0.1 --port 9966 --index index.html .",
     "start": "run-p watch-dev start-server",
     "build-docs": "documentation build --github --format json --config ./docs/documentation.yml --output docs/components/api.json src/index.js",
-    "lint": "eslint --cache --ignore-path .gitignore src test bench docs",
+    "lint": "eslint --fix --cache --ignore-path .gitignore src test bench docs",
     "lint-docs": "documentation lint src/index.js",
-    "test": "run-s lint test-flow test-unit",
+    "test": "run-s lint test-unit",
     "test-unit": "tap --reporter classic --no-coverage test/unit",
     "test-flow": "flow .",
     "test-cov": "nyc --require=flow-remove-types/register --reporter=text-summary --reporter=lcov --cache npm run test-unit",
@@ -88,6 +89,7 @@
     "bubleify": "^1.1.0",
     "tap": "^11.1.0",
     "unassertify": "^2.1.0",
-    "unflowify": "^1.0.1"
+    "unflowify": "^1.0.1",
+    "uuid": "^3.2.1"
   }
 }
