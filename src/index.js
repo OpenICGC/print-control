@@ -2,13 +2,15 @@
 "use strict";
 
 const version: string = require("../package.json").version;
-const LatLon = require("./geo/latlon");
-const LatLonBounds = require("./geo/latlonBounds");
+const Input = require("./ui/input");
+const RadioGroup = require("./ui/radioGroup");
+const PrintControl = require("./ui/printControl");
 
 module.exports = {
 	version,
-	LatLon,
-	LatLonBounds
+	Input,
+	RadioGroup,
+	PrintControl
 };
 
 /**
