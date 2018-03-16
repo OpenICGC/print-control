@@ -13,15 +13,12 @@
     "node": ">=8.4.0"
   },
   "devDependencies": {
-    "babel-eslint": "^8.2.1",
     "browserify": "^15.2.0",
     "coveralls": "^3.0.0",
     "derequire": "^2.0.6",
     "documentation": "^5.3.5",
-    "envify": "^4.1.0",
-    "eslint": "^4.16.0",
-    "eslint-config-mourner": "^2.0.3",
-    "eslint-plugin-flowtype": "^2.42.0",
+	"envify": "^4.1.0",
+	"eslint-config-geostart": "git+https://github.com/geostarters/eslint-config-geostart.git",
     "eslint-plugin-html": "^4.0.2",
     "eslint-plugin-node": "^5.2.1",
     "eslint-plugin-react": "^7.6.1",
