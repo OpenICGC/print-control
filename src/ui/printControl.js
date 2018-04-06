@@ -1,9 +1,7 @@
 // @flow
 "use strict";
-/*
 const Input = require("./input");
 const Selector = require("./selector");
-*/
 const RadioGroup = require("./radioGroup");
 
 
@@ -24,7 +22,11 @@ class PrintControl {
 		this.container = container;
 		this.canvas = canvas;
 		this.controls = [
-			new RadioGroup("Output Format", [{label: "PNG", value: "png", selected: true}, {label: "PDF", value: "pdf", selected: false}], {name: "input1"})
+			new RadioGroup("Layout", [{label: "Portrait", value: "portrait", selected: true}, {label: "Landscape", value: "landscape", selected: false}], {name: "input1"}),
+			new Selector("Mides", [{label:"A4", value: "a4"},{label:"A3", value: "a3"}], {id: "input2", placeholder: "seleccioneu la mida"}),
+			new Input("Amplada", "text", {id: "input3", placeholder: "valor en mm"}),
+			new Input("Alçada", "text", {id: "input4", placeholder: "valor en mm"}),
+			new Selector("DPI", [{label:"300", value: "300"},{label:"150", value: "150"}], {id: "input5", placeholder: "seleccioneu la resolució"}),
 		];
 	}
 
