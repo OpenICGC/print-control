@@ -1,0 +1,1 @@
+declare type PositionType = "left" | "right" | "top" | "bottom";
