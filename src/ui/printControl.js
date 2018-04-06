@@ -14,11 +14,13 @@ const RadioGroup = require("./radioGroup");
  * var ll = new LatLon(42.10376, 1.84584);
  */
 class PrintControl {
+
 	container: Object;
 	canvas: Object;
 	controls: Object[];
 
 	constructor(container: Object, canvas: Object) {
+
 		this.container = container;
 		this.canvas = canvas;
 		this.controls = [
@@ -28,6 +30,7 @@ class PrintControl {
 			new Input("Alçada", "text", {id: "input4", placeholder: "valor en mm"}),
 			new Selector("DPI", [{label:"300", value: "300"},{label:"150", value: "150"}], {id: "input5", placeholder: "seleccioneu la resolució"}),
 		];
+
 	}
 
 	/**
@@ -36,11 +39,16 @@ class PrintControl {
 	 * @returns {string} `html`
 	 */
 	render() {
+
 		const attStr = this.controls.map((element) => {
+
 			return element.render();
+
 		}).join("");
 		this.container.innerHTML = attStr;
+
 	}
+
 }
 
 module.exports = PrintControl;
