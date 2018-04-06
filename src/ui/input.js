@@ -16,20 +16,20 @@ class Input {
 	type: InputType;
 	attributes: ?Object;
 
-	constructor(label: string, type: InputType, options: ?Object) {
+	constructor(label: string, type: InputType, attributes: ?Object) {
 		this.label = label;
 		this.type = type;
-		this.setAttributes(options);
+		this.setAttributes(attributes);
 	}
 
 	/**
-	 * Set the latitude
+	 * Set the input attributes
 	 *
-	 * @param {number} lat
-	 * @returns {LatLon} `this`
+	 * @param {Object} attributes
+	 * @returns {Input} `this`
 	 */
-	setAttributes(options: ?Object) {
-		this.attributes = Object.assign({}, options);
+	setAttributes(attributes: ?Object) {
+		this.attributes = Object.assign({}, attributes);
 		if (!this.attributes.id) {
 			this.attributes.id = random.createId();
 		}

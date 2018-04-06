@@ -1,1 +1,1 @@
-declare type InputType = "button" | "text" | "checkbox";
+declare type InputType = "button" | "text" | "checkbox" | "radio";

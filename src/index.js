@@ -3,10 +3,16 @@
 
 const version: string = require("../package.json").version;
 const Sidebar = require("./ui/sidebar");
+const Input = require("./ui/input");
+const RadioGroup = require("./ui/radioGroup");
+const PrintControl = require("./ui/printControl");
 
 module.exports = {
 	version,
-	Sidebar
+	Sidebar,
+	Input,
+	RadioGroup,
+	PrintControl
 };
 
 /**
