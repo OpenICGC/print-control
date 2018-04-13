@@ -51,11 +51,16 @@ class Sidebar {
 
 	}
 
-	hide(document) {	
+	hide(document) {
+
 		const self = this;
 		self.visibility = false;
-		document.querySelector('body').innerHTML = self.render();
-		self.addEventToButton(document);
+		if (undefined !== document) {
+
+			document.querySelector("body").innerHTML = self.render();
+			self.addEventToButton(document);
+
+		}
 
 	}
 
@@ -63,9 +68,13 @@ class Sidebar {
 
 		const self = this;
 		self.visibility = true;
-		document.querySelector('body').innerHTML = self.render();
-		self.addEventToButton(document);
-		
+		if (undefined !== document) {
+
+			document.querySelector("body").innerHTML = self.render();
+			self.addEventToButton(document);
+
+		}
+
 	}
 
 	setPosition(position: PositionType) {
@@ -113,15 +122,20 @@ class Sidebar {
 	addEventToButton(document) {
 
 		const self = this;
-		document.getElementById("sidebarCollapse").onclick = function () {
+		if (undefined !== document) {
 
-			self.changeVisibility(document);
+			document.getElementById("sidebarCollapse").onclick = function () {
 
-		};
+				self.changeVisibility(document);
+
+			};
+
+		}
 
 	}
 
-	changeVisibility() {
+	changeVisibility(document) {
+
 		const self = this;
 		// open or close navbar
 		if (!self.visibility) {
@@ -141,6 +155,7 @@ class Sidebar {
 	 * @returns {string} `html`
 	 */
 	render() {
+
 		const html = `<div class="wrapper  sidebar-${this.position}">` +
 						`<nav id="sidebar" class="${this.visibility ? "active" : "unactive"}">` +
 						"<!-- Sidebar Header -->" +
