@@ -1,9 +1,11 @@
 // @flow
 "use strict";
-const random = require("../utils/random");
+const LabeledInput = require("./labeledInput");
+const Div = require("./div");
+const Label = require("./label");
 
 /**
- * A Input element.
+ * A RadioGroup element.
  *
  * @param {string} label Input label.
  * @param {string} type Input type.
@@ -12,14 +14,16 @@ const random = require("../utils/random");
  */
 class RadioGroup {
 
-	label: string;
 	options: OptionType[];
 	attributes: ?Object;
 
-	constructor(label: string, options: OptionType[], attributes: ?Object) {
+	constructor(label: string, options: OptionType[] = [], attributes: ?Object) {
 
-		this.label = label;
-		this.setOptions(options, attributes);
+		this.createOptions(options, attributes);
+		this.label = new Label({}, false);
+		this.label.setContent(label);
+		this.div = new Div({class: "form-group"}, false);
+		this.div.setContent(this.label.render());
 
 	}
 
@@ -30,15 +34,27 @@ class RadioGroup {
 	 *
 	 * @returns {RadioGroup} `this`
 	 */
-	setOptions(options: OptionType[], attributes: ?Object) {
+	createOptions(options: OptionType[], attributes: ?Object) {
 
-		this.attributes = Object.assign({}, attributes);
-		this.options = options.slice(0);
-		if (!this.attributes.name) {
+		this.options = options.map((elem) => {
 
-			this.attributes.name = random.createId();
+			const elemAttribs = Object.assign({}, attributes, {value: elem.value});
+			if (elem.selected) {
 
-		}
+				elemAttribs.checked = true;
+
+			}
+
+			if (elem.id) {
+
+				elemAttribs.id = elem.id;
+
+			}
+
+			return new LabeledInput(elem.label, "radio", false, elemAttribs, {class: "radio-inline"});
+
+		});
+
 		return this;
 
 	}
@@ -50,19 +66,14 @@ class RadioGroup {
 	 */
 	render() {
 
-		const attStr = Object.keys(this.attributes).map((key) => {
+		const optionsStr = this.options.map((elem) => {
 
-			return `${key}="${this.attributes[key]}"`;
-
-		}).join(" ");
-
-		const optStr = this.options.map((elem) => {
-
-			return `<label class="radio-inline"><input type="radio" ${attStr} value="${elem.value}" ${elem.selected ? "checked" : ""}>${elem.label}</label>`;
+			return elem.render();
 
 		}).join("");
 
-		return `<div class="form-group"><label>${this.label}</label><br>${optStr}</div>`;
+		this.div.addContent(optionsStr);
+		return this.div.render();
 
 	}
 
