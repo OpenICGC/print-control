@@ -2,15 +2,15 @@
 
 require("flow-remove-types/register");
 const test = require("tap").test;
-const Input = require("../../src/ui/input");
+const Radio = require("../../src/ui/radio");
 
-test("Input", (t) => {
+test("Radio", (t) => {
 
 	t.test("#constructor", (t) => {
 
-		t.ok(new Input("text") instanceof Input, "creates an object");
-		const el = new Input("text");
-		t.equal(el.type, "text");
+		t.ok(new Radio() instanceof Radio, "creates an object");
+		const el = new Radio();
+		t.equal(el.type, "radio");
 		t.ok(el.attributes.hasOwnProperty("id"));
 		t.end();
 
