@@ -24,7 +24,7 @@ test("PrintControl", (t) => {
 
 		const { document } = new JSDOM("<!DOCTYPE html><div id=\"control\"><canvas id=\"canvasid\"></canvas></div>").window;
 		const tHtml = new PrintControl(document.querySelector("#control"), document.querySelector("#canvasid"));
-		tHtml.render();
+		tHtml.render(document);
 		t.equal(document.querySelector("#control").innerHTML, PrintControlResult);
 		t.end();
 
