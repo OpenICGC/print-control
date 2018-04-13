@@ -1,6 +1,7 @@
 body {
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     background: #fafafa;
+    overflow-y: hidden;
 }
 
 p {
@@ -21,15 +22,10 @@ a, a:hover, a:focus {
 	min-width: 350px;
     max-width: 350px;
     min-height: 100vh;
-    background: #7386D5;
-    color: #fff;
+    color: #444;;
     transition: all 0.3s;
 }
 
-#sidebar .sidebar-header {
-    padding: 20px;
-    background: #6d7fcc;
-}
 
 #sidebar .sidebar-body {
     padding: 20px;
@@ -45,8 +41,12 @@ a, a:hover, a:focus {
 	float:right;
 }
 
-#sidebar.active {
+#sidebar.unactive {
     display:none;
+}
+
+#sidebar.active {
+    display:block;
 }
 
 a[data-toggle="collapse"] {
@@ -66,6 +66,38 @@ a[aria-expanded="true"]::before {
     content: '\e260';
 }
 
+#sidebar .sidebar-header .title{
+    padding: 16px;
+    color: #999;
+    font-weight: 600;
+}
+
+.form-group{
+    margin-bottom: 10px;
+}
+
+.form-group label{
+    width: 50px;
+    display:inline-block;
+}
+
+.form-group label.radio-inline{
+   display: inline;
+}
+
+.form-group select, .form-group input {
+    margin-left: 30px;
+}
+
+#sidebarCollapse{
+    background-color: #2ebae6; /* Green */
+    border: none;
+    color: white;
+    height: 42px;
+    width: 42px;
+    line-height: 38px;
+    font-size:1.4em;
+}
 
 @media (max-width: 768px) {
     #sidebar {

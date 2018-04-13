@@ -12,34 +12,68 @@
  * new Sidebar(false, "left", "Header","<input type=\"text\" id=\"id\" value=\"value\">");
  */
 class Sidebar {
+
 	visibility: boolean;
 	position: PositionType;
 	components: ?Object;
 	header: String;
 
 	constructor(visibility: boolean, position: PositionType, header: String, component: ?Object) {
+
 		this.visibility = visibility;
 		this.position = position;
 		if (undefined !== component) {
-			if (undefined !== this.components) this.components = `${this.components}${component}`;
-			else  this.components = component;
-		} else this.components = "";
-		if (undefined !== header) this.header = header;
-		else this.header = "";
+
+			if (undefined !== this.components) {
+
+				this.components = `${this.components}${component}`;
+
+			} else  {
+
+				this.components = component;
+
+			}
+
+		} else {
+
+			this.components = "";
+
+		}
+		if (undefined !== header) {
+
+			this.header = header;
+
+		} else {
+
+			this.header = "";
+
+		}
+
 	}
 
-	hide() {
-		this.visibility = false;
+	hide(document) {	
+		const self = this;
+		self.visibility = false;
+		document.querySelector('body').innerHTML = self.render();
+		self.addEventToButton(document);
+
 	}
 
-	show() {
-		this.visibility = true;
+	show(document) {
+
+		const self = this;
+		self.visibility = true;
+		document.querySelector('body').innerHTML = self.render();
+		self.addEventToButton(document);
+		
 	}
 
 	setPosition(position: PositionType) {
-		this.position = position;
-	}
 
+		const self = this;
+		self.position = position;
+
+	}
 
 
 	/**
@@ -48,10 +82,21 @@ class Sidebar {
 	 * @param {?Object} component
 	 */
 	addComponent(component: ?Object) {
+
 		if (undefined !== component) {
-			if (undefined !== this.components) this.components = `${this.components}${component}`;
-			else  this.components = component;
+
+			if (undefined !== this.components) {
+
+				this.components = `${this.components}${component}`;
+
+			} else  {
+
+				this.components = component;
+
+			}
+
 		}
+
 	}
 
 	/**
@@ -60,22 +105,35 @@ class Sidebar {
 	 * @param {String} header
 	 */
 	addHeader(header: String) {
+
 		this.header = header;
+
 	}
 
-	addEventToButton(){
-		var self = this;
-		document.getElementById('sidebarCollapse').onclick = function () {
-			self.changeVisibility();
+	addEventToButton(document) {
+
+		const self = this;
+		document.getElementById("sidebarCollapse").onclick = function () {
+
+			self.changeVisibility(document);
+
 		};
-	
+
 	}
 
-	changeVisibility(){
+	changeVisibility() {
+		const self = this;
 		// open or close navbar
-		console.log(this.visibility);
-		if (this.visibility) this.show();	
-		else this.hide();	
+		if (!self.visibility) {
+
+			self.show(document);
+
+		} else {
+
+			self.hide(document);
+
+		}
+
 	}
 	/**
 	 * Create HTML string
@@ -84,10 +142,10 @@ class Sidebar {
 	 */
 	render() {
 		const html = `<div class="wrapper  sidebar-${this.position}">` +
-						`<nav id="sidebar" class="${this.visibility ? "active" : ""}">` +
+						`<nav id="sidebar" class="${this.visibility ? "active" : "unactive"}">` +
 						"<!-- Sidebar Header -->" +
 							"<div class=\"sidebar-header\">" +
-								`<h3>${this.header}</h3>` +
+								`<span class="title">${this.header}</span>` +
 							"</div>" +
 							"<div class=\"sidebar-body\">" +
 								`${this.components}` +
@@ -96,11 +154,13 @@ class Sidebar {
 					"</div>" +
 					`<div id="content" class="sidebar-${this.position}">` +
 						"<button type=\"button\" id=\"sidebarCollapse\" class=\"btn btn-info navbar-btn\">" +
-							">" +
-						"<button>" +
+							`${this.visibility ? ">" : "<"}` +
+						"</button>" +
 					"<div>";
 		return html;
+
 	}
+
 }
 
 module.exports = Sidebar;

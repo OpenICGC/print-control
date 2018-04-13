@@ -25,10 +25,10 @@ class PrintControl {
 		this.canvas = canvas;
 		this.controls = [
 			new RadioGroup("Layout", [{label: "Portrait", value: "portrait", selected: true}, {label: "Landscape", value: "landscape", selected: false}], {name: "input1"}),
-			new Selector("Mides", [{label:"A4", value: "a4"},{label:"A3", value: "a3"}], {id: "input2", placeholder: "seleccioneu la mida"}),
+			new Selector("Mides", [{label:"A4", value: "a4"}, {label:"A3", value: "a3"}], {id: "input2", placeholder: "seleccioneu la mida"}),
 			new Input("Amplada", "text", {id: "input3", placeholder: "valor en mm"}),
 			new Input("Alçada", "text", {id: "input4", placeholder: "valor en mm"}),
-			new Selector("DPI", [{label:"300", value: "300"},{label:"150", value: "150"}], {id: "input5", placeholder: "seleccioneu la resolució"}),
+			new Selector("DPI", [{label:"300", value: "300"}, {label:"150", value: "150"}], {id: "input5", placeholder: "seleccioneu la resolució"}),
 		];
 
 	}
@@ -38,7 +38,8 @@ class PrintControl {
 	 *
 	 * @returns {string} `html`
 	 */
-	getHtml(){
+	getHtml() {
+
 		const attStr = this.controls.map((element) => {
 
 			return element.render();
@@ -46,6 +47,7 @@ class PrintControl {
 		}).join("");
 
 		return attStr;
+
 	}
 
 	/**
