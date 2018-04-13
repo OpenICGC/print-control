@@ -3,7 +3,7 @@
 const Input = require("./input");
 const Selector = require("./selector");
 const RadioGroup = require("./radioGroup");
-
+const Button = require("./button");
 
 /**
  * A Input element.
@@ -29,6 +29,7 @@ class PrintControl {
 			new Input("Amplada", "text", {id: "input3", placeholder: "valor en mm"}),
 			new Input("Alçada", "text", {id: "input4", placeholder: "valor en mm"}),
 			new Selector("DPI", [{label:"300", value: "300"}, {label:"150", value: "150"}], {id: "input5", placeholder: "seleccioneu la resolució"}),
+			//new Button("",[{id: "input6",text: "Generar mapa"}]).addCallback("createPrintMap()"),
 		];
 
 	}
