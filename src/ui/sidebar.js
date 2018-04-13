@@ -63,6 +63,20 @@ class Sidebar {
 		this.header = header;
 	}
 
+	addEventToButton(){
+		var self = this;
+		document.getElementById('sidebarCollapse').onclick = function () {
+			self.changeVisibility();
+		};
+	
+	}
+
+	changeVisibility(){
+		// open or close navbar
+		console.log(this.visibility);
+		if (this.visibility) this.show();	
+		else this.hide();	
+	}
 	/**
 	 * Create HTML string
 	 *

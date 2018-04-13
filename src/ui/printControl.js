@@ -38,13 +38,24 @@ class PrintControl {
 	 *
 	 * @returns {string} `html`
 	 */
-	render() {
-
+	getHtml(){
 		const attStr = this.controls.map((element) => {
 
 			return element.render();
 
 		}).join("");
+
+		return attStr;
+	}
+
+	/**
+	 * Create HTML string
+	 *
+	 * @returns {string} `html`
+	 */
+	render() {
+
+		const attStr = this.getHtml();
 		this.container.innerHTML = attStr;
 
 	}

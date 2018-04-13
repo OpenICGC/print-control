@@ -62,9 +62,9 @@
     ]
   },
   "scripts": {
-    "build-dev": "browserify src/index.js --debug --ignore-transform unassertify --standalone print-control > dist/print-control.js",
-    "watch-dev": "watchify src/index.js --debug --ignore-transform unassertify --standalone print-control --outfile dist/print-control-dev.js --verbose",
-    "build-min": "browserify src/index.js --debug --plugin [minifyify --map print-control.js.map --output dist/print-control.js.map] --standalone print-control | derequire > dist/print-control.js",
+    "build-dev": "browserify src/index.js --debug --ignore-transform unassertify --standalone GS > dist/project-template-dev.js browserify src/css/estils.css --standalone dist/project-template-dev.css",
+    "watch-dev": "watchify src/index.js --debug --ignore-transform unassertify --standalone GS -o dist/project-template-dev.js",
+    "build-min": "browserify src/index.js --debug --plugin [minifyify --map project-template.js.map --output dist/project-template.js.map] --standalone project-template | derequire > dist/project-template.js",
     "start-server": "st --no-cache -H 127.0.0.1 --port 9966 --index index.html .",
     "open": "node build/dev-server.js",
     "start": "run-p watch-dev start-server open",

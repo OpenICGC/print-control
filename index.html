@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="./src/css/estils.css">
 	<title>Document</title>
 </head>
 <body>
@@ -11,7 +12,10 @@
 	<canvas id="canvas"></canvas>
 	<script src="./dist/project-template-dev.js"></script>
 	<script>
-		new GS.PrintControl(document.querySelector('#control'),document.querySelector('#canvas')).render();
+		var sidebar = new GS.Sidebar(false, "left", "Barra lateral");
+		sidebar.addComponent(new GS.PrintControl(null,document.querySelector('#canvas')).getHtml());
+		document.querySelector('body').innerHTML = sidebar.render();
+		sidebar.addEventToButton();
 	</script>
 </body>
 </html>
