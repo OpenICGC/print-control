@@ -14,7 +14,7 @@
 	<script>
 		var sidebar = new GS.Sidebar(true, "left", "Barra lateral");
 		sidebar.addComponent(new GS.PrintControl(null,document.querySelector('#canvas')).getHtml());
-		document.querySelector('body').innerHTML = sidebar.render();
+		document.querySelector('body').innerHTML = sidebar.render(document);
 		sidebar.addEventToButton(document);
 	</script>
 </body>
