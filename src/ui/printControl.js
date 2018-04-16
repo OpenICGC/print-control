@@ -3,7 +3,7 @@
 const LabeledInput = require("./labeledInput");
 const Selector = require("./selector");
 const RadioGroup = require("./radioGroup");
-const Button = require("./button");
+//const Button = require("./button");
 
 /**
  * A Input element.
