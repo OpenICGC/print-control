@@ -3,7 +3,8 @@
 const LabeledInput = require("./labeledInput");
 const Selector = require("./selector");
 const RadioGroup = require("./radioGroup");
-//const Button = require("./button");
+const Button = require("./button");
+//const PrintMap = require("../utils/printMap");
 
 /**
  * A Input element.
@@ -23,15 +24,6 @@ class PrintControl {
 
 		this.container = container;
 		this.canvas = canvas;
-<<<<<<< HEAD
-		this.controls = [
-			new RadioGroup("Layout", [{label: "Portrait", value: "portrait", selected: true}, {label: "Landscape", value: "landscape", selected: false}], {name: "input1"}),
-			new Selector("Mides", [{label:"A4", value: "a4"}, {label:"A3", value: "a3"}], {id: "input2", placeholder: "seleccioneu la mida"}),
-			new LabeledInput("Amplada", "text", true, {id: "input3", placeholder: "valor en mm"}),
-			new LabeledInput("Alçada", "text", true, {id: "input4", placeholder: "valor en mm"}),
-			new Selector("DPI", [{label:"300", value: "300"}, {label:"150", value: "150"}], {id: "input5", placeholder: "seleccioneu la resolució"}),
-			//new Button("",[{id: "input6",text: "Generar mapa"}]).addCallback("createPrintMap()"),
-=======
 		this.controls = this.createControls();
 
 	}
@@ -89,7 +81,7 @@ class PrintControl {
 				{label:"1000000", value: "1000000"},
 				{label:"2000000", value: "2000000"},
 			], {id: "inputEscala", placeholder: "Seleccioneu l'escala"}),
->>>>>>> 7fd582f91e6e82c73637ac8e9fced7552d0325d1
+			new Button({id:"inputGenerarMapa", value:"Generar mapa"})
 		];
 
 	}
@@ -124,7 +116,8 @@ class PrintControl {
 		this.sizeSelector = document.querySelector("#inputMida");
 		this.widthInput = document.querySelector("#inputAmplada");
 		this.heightInput = document.querySelector("#inputAlcada");
-
+		this.dpiInput = document.querySelector("#inputDPI");
+		this.buttonInput = document.querySelector("#inputGenerarMapa");
 		this.addEvents();
 
 	}
@@ -132,6 +125,7 @@ class PrintControl {
 	addEvents() {
 
 		this.sizeSelector.addEventListener("change", () => this.sizeChanged());
+
 
 	}
 
@@ -151,6 +145,10 @@ class PrintControl {
 
 		}
 
+	}
+
+	addEventToButton(document,functionclick){
+		document.querySelector("#inputGenerarMapa").addEventListener("click", functionclick);
 	}
 
 }

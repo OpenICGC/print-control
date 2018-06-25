@@ -6,13 +6,15 @@ const Sidebar = require("./ui/sidebar");
 const Input = require("./ui/input");
 const RadioGroup = require("./ui/radioGroup");
 const PrintControl = require("./ui/printControl");
+const Button = require("./ui/button");
 
 module.exports = {
 	version,
 	Sidebar,
 	Input,
 	RadioGroup,
-	PrintControl
+	PrintControl,
+	Button
 };
 
 /**

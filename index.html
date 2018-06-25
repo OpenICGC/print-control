@@ -4,18 +4,32 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.42.2/mapbox-gl.css"/>
 	<link rel="stylesheet" href="./src/css/estils.css">
 	<title>Document</title>
 </head>
 <body>
+	<div id="codiPrint"></div>
 	<div id="control"></div>
 	<canvas id="canvas"></canvas>
+	<div id="map"></div>
+	<div id="link_wf"></div> 	
+	<script type="text/javascript" src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.js"></script>
+	<script src="./dist/libs-print-dev.js"></script>
 	<script src="./dist/project-template-dev.js"></script>
 	<script>
 		var sidebar = new GS.Sidebar(true, "left", "Barra lateral");
-		sidebar.addComponent(new GS.PrintControl(null,document.querySelector('#canvas')).getHtml());
-		document.querySelector('body').innerHTML = sidebar.render(document);
+		var printControl = new GS.PrintControl(null,document.querySelector('#canvas'));
+		var printControlHtml = printControl.getHtml();
+		
+		sidebar.addComponent(printControlHtml);
+		document.querySelector('#codiPrint').innerHTML = sidebar.render(document);
 		sidebar.addEventToButton(document);
+		console.debug(document);
+		printControl.addEventToButton(document,() => {
+			createPrintMap(document.querySelector("#inputAmplada").value, document.querySelector("#inputAlcada").value, document.querySelector("#inputDPI").value, "png", "mm", map.getZoom(), map.getCenter(),
+				map.getBearing(), map.getStyle(),  map.getPitch());
+		});
 	</script>
 </body>
 </html>
