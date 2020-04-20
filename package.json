@@ -34,6 +34,7 @@
     "in-publish": "^2.0.0",
     "jsdom": "^11.6.2",
     "minifyify": "^7.3.5",
+    "minimist": "^1.2.5",
     "npm-run-all": "^4.1.2",
     "opn": "^5.2.0",
     "package-json-versionify": "^1.0.4",
@@ -97,6 +98,7 @@
     "uuid": "^3.2.1"
   },
   "resolutions": {
-    "diff": "^4.0.2"
+    "diff": "^4.0.2",
+    "minimist": "^1.2.5"
   }
 }
