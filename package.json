@@ -17,6 +17,7 @@
     "concat": "^1.0.3",
     "coveralls": "^3.0.0",
     "derequire": "^2.0.6",
+    "diff": "^4.0.2",
     "documentation": "^5.3.5",
     "envify": "^4.1.0",
     "eslint-config-geostart": "git+https://github.com/geostarters/eslint-config-geostart.git",
@@ -77,7 +78,8 @@
     "test-flow": "flow .",
     "test-cov": "nyc --require=flow-remove-types/register --reporter=text-summary --reporter=lcov --cache npm run test-unit",
     "pre-production": "run-s lint build-min test test-cov",
-    "build-libs": "concat -o dist/libs-print-dev.js ./js-print/canvas-toBlob.min.js ./js-print/FileSaver.min.js ./js-print/jspdf.min.js ./js-print/worldFile.js ./js-print/script.js"
+    "build-libs": "concat -o dist/libs-print-dev.js ./js-print/canvas-toBlob.min.js ./js-print/FileSaver.min.js ./js-print/jspdf.min.js ./js-print/worldFile.js ./js-print/script.js",
+    "preinstall": "npx npm-force-resolutions"
   },
   "files": [
     "build/",
@@ -93,5 +95,8 @@
     "unassertify": "^2.1.0",
     "unflowify": "^1.0.1",
     "uuid": "^3.2.1"
+  },
+  "resolutions": {
+    "diff": "^4.0.2"
   }
 }
