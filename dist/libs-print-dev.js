@@ -308,7 +308,7 @@ try {
         center: [1.67, 41.68],
         zoom: 8,
         pitch: 0,
-        style: 'http://betaserver.icgc.cat/ICGC-pintamaps-omt/styles/icgc.json'
+        style: 'https://geoserveis.icgc.cat/backgroundmaps/icgc.json'
     });
     map.addControl(new mapboxgl.NavigationControl({
         position: 'top-left'
