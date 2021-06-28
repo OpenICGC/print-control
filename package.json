@@ -38,7 +38,7 @@
     "opn": "^6.0.0",
     "package-json-versionify": "^1.0.4",
     "present": "^1.0.0",
-    "prismjs": "^1.23.0",
+    "prismjs": "^1.24.0",
     "st": "^2.0.0",
     "watchify": "^3.11.1"
   },
