@@ -18,7 +18,7 @@
     "coveralls": "^3.1.0",
     "derequire": "^2.1.0",
     "diff": "^4.0.2",
-    "documentation": "^13.0.0",
+    "documentation": "^14.0.1",
     "envify": "^4.1.0",
     "eslint-config-geostart": "git+https://github.com/geostarters/eslint-config-geostart.git",
     "eslint-plugin-html": "^6.0.2",
