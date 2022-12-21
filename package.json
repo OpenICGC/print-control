@@ -33,7 +33,7 @@
     "in-publish": "^2.0.1",
     "jsdom": "^16.2.2",
     "minifyify": "^7.3.5",
-    "minimist": "^1.2.5",
+    "minimist": "^1.2.6",
     "npm-run-all": "^4.1.5",
     "opn": "^6.0.0",
     "package-json-versionify": "^1.0.4",
